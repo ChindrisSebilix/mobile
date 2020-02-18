@@ -10,22 +10,22 @@ class LocalRepo {
     }
 
 
-    save(id, name, quantity, status, price , description){
-        this.realmObject.write(() => {
+    // save(id, name, quantity, status, price , description){
+    //     this.realmObject.write(() => {
             
  
-            this.realmObject.create('Product', 
-            {
-                name: name,
-                quantity: quantity,
-                price: price,
-                description: description,
-                status: status,
-                id: id
+    //         this.realmObject.create('Product', 
+    //         {
+    //             name: name,
+    //             quantity: quantity,
+    //             price: price,
+    //             description: description,
+    //             status: status,
+    //             id: id
                 
-            });
-          });
-    }
+    //         });
+    //       });
+    // }
 
 //     upgrade(id, quantity){
 //         this.realmObject.write(() => {
@@ -40,11 +40,14 @@ class LocalRepo {
 //         })
 //     }
 
-    getAllClient(){
+    getAllMoviesDirector(){
         
-        const dbCars = this.realmObject.objects('Product');
-        const cars =Object.keys(dbCars).map( e => dbCars[e]);
-        return cars;
+        // const dbCars = this.realmObject.objects('Product');
+        // const cars =Object.keys(dbCars).map( e => dbCars[e]);
+        // return cars;
+        const dbMovies = this.realmObject.objects('Movie');
+        const movies = Object.keys(dbMovies).map(e=>dbMovies[e]);
+        return movies;
     }
 
 //     delete(id){
@@ -57,15 +60,12 @@ class LocalRepo {
 //     }
 
     find(id){
-        const carAsList = this.realmObject.objects("Product").filtered(`id == ${id} `)
-        if (carAsList['0'] !== undefined){
+        const moviesAsList = this.realmObject.objects("Movies").filtered(`id == ${id} `)
+        if (moviesAsList['0'] !== undefined){
             return true;
         }
         return false;
-
     }
-
-
 }
 
 export async function getRepo(){

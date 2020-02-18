@@ -8,7 +8,7 @@ import {
     View,
   } from 'react-native';
 
-import CarItem from './item-component';
+import MovieItem from './item-component';
 
 export default class ListComponent extends React.Component{
 
@@ -20,11 +20,11 @@ export default class ListComponent extends React.Component{
         <FlatList
         data={items}
         renderItem={ bigItem => (
-          <CarItem
+          <MovieItem
             item = {bigItem.item}
-            onBuy= {this.props.onBuy}
-            onDelete={this.props.onDelete}
-            forClerk={this.props.forClerk}
+            // onBuy= {this.props.onBuy}
+            // onDelete={this.props.onDelete}
+            // forClerk={this.props.forClerk}
             // forClient={this.props.forClient}
             isOnline={this.props.isOnline}
           />
